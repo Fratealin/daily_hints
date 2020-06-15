@@ -1,0 +1,13 @@
+#SORT INSTANCES BY ATTRIBUTE
+turtles = sorted(turtles, key=operator.attrgetter('score'), reverse=True)
+turtles = sorted(turtles, key=lambda x: x.score, reverse=True)
+turtles.sort(key=lambda x: x.score, reverse=True)
+
+#SAFER WAY TO OPEN FILES
+with open('todays_reminder.txt', 'w') as fileObject:
+        fileObject.write("stuff")
+        fileObject.close()
+
+#pop / remove first item in itterable to last
+removed_item = paragraphs.pop(0)
+paragraphs.append(removed_item)

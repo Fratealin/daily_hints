@@ -1,0 +1,76 @@
+tree -a ./foldername
+
+Most commonly used bash command:
+history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10
+Awk is the most important part in line above, It simply stores the command and counts the occurrence in history ( column 2, $2), at the end of operation, it prints the result. 
+Passes to grep -v to filter out “./”, because ./something is not a linux command. After that, arrange the data in columns and sort it numerically. List only the top ten with numbers using head and nl.
+
+Ctrl+L – clears the screen (same effect as the “clear” command).
+
+Ctrl+S – pause all command output to the screen. If you have executed a command that produces verbose, long output, use this to pause the output scrolling down the screen.
+
+Ctrl+Q – resume output to the screen after pausing it with Ctrl+S.
+
+Ctrl+A or Home – moves the cursor to the start of a line.
+
+Ctrl+E or End – moves the cursor to the end of the line.
+
+Ctrl+B or Left Arrow – moves the cursor back one character at a time.
+
+Ctrl+F or Right Arrow – moves the cursor forward one character at a time.
+
+Ctrl + Left Arrow or Alt+B or Esc and then B – moves the cursor back one word at a time.
+
+Ctrl + Right Arrow or Alt+C or Esc and then F – moves the cursor forward one word at a time.
+
+Ctrl+R – starts a reverse search, through the bash history, simply type characters that should be unique to the command you want to find in the history.
+
+Ctrl+S – launches a forward search, through the bash history.
+
+Ctrl+G – quits reverse or forward search, through the bash history.
+
+Ctrl+D or Delete – remove or deletes the character under the cursor.
+
+Ctrl+K – removes all text from the cursor to the end of the line.
+
+Ctrl+X and then Backspace – removes all the text from the cursor to the beginning of the line.
+
+Ctrl+T – transposes the character before the cursor with the character under the cursor.
+
+Esc and then T – transposes the two words immediately before (or under) the cursor.
+
+Esc and then U – transforms the text from the cursor to the end of the word to uppercase.
+
+Esc and then L – transforms the text from the cursor to the end of the word to lowercase.
+
+Esc and then C – changes the letter under the cursor (or the first letter of the next word) to uppercase, leaving the rest of the word unchanged.
+
+Ctrl+Z – suspend the current foreground process. This sends the SIGTSTP signal to the process. You can get the process back to the foreground later using the fg process_name (or %bgprocess_number like %1, %2 and so on) command.
+
+Ctrl+C – interrupt the current foreground process, by sending the SIGINT signal to it. The default behavior is to terminate a process gracefully, but the process can either honor or ignore it.
+
+Ctrl+D – exit the bash shell (same as running the exit command).
+
+!! – execute last command.
+
+!top – execute the most recent command that starts with ‘top’ (e.g. !).
+
+!top:p – displays the command that !top would run (also adds it as the latest command in the command history).
+
+!$ – execute the last word of the previous command (same as Alt +., e.g. if last command is ‘cat tecmint.txt’, then !$ would try to run ‘tecmint.txt’).
+
+!$:p – displays the word that !$ would execute.
+
+!* – displays the last word of the previous command.
+
+!*:p – displays the last word that !* would substitute.
+
+find ./foldername -name filename.txt 
+
+find ./foldername -name *.txt
+
+search for text within multiple files
+
+find ./ -type f -name "*.txt" -exec grep 'Geek'  {} \;
+
+tree is a recursive directory listing program that produces a depth-indented listing of files. With no arguments, tree lists the files in the current directory.sudo apt install tree
